@@ -8,8 +8,12 @@ module.exports = {
   plugins: ["@typescript-eslint"],
   extends: [
     "standard",
+    "next/core-web-vitals",
+    "plugin:typescript-eslint/recommended",
+
     "plugin:prettier/recommended",
     "plugin:node/recommended",
+    "prettier"
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {

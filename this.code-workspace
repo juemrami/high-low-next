@@ -5,6 +5,9 @@
 		}
 	],
 	"settings": {
-		"vsicons.presets.nestjs": true
+		"vsicons.presets.nestjs": true,
+		"search.exclude": {
+			"**/node_modules": false
+		}
 	}
 }

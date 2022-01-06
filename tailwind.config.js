@@ -7,8 +7,9 @@ module.exports = {
     extend: {
       colors: {
         gold: "#f0bc13",
-        gray: "#181818",
-        'dark-gray':"#121211",
+        gray: "#1f1f1f",
+        darkgray :"#121211",
+        light: "#fafafa",
       },
       fontSize:{
         'code': '1.1rem',
