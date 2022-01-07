@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import detectEthereumProvider from "@metamask/detect-provider";
 import { ErrorDescription } from "@ethersproject/abi/lib/interface";
 import MainMenu from "../lib/components/Contacts/MainMenu";
+import AddLobbyInterface from "../lib/components/AddLobbyInterface";
 declare let window: any;
 const contractAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
 
@@ -56,9 +57,6 @@ const customStyles = {
       hover:text-gold hover:border-gold hover:cursor-pointer
   `,
 };
-export const addLobby = async () => {
-  return <></>;
-};
 
 const Home: NextPage = () => {
   const [greeting, setGreetingValue] = useState();
@@ -66,12 +64,18 @@ const Home: NextPage = () => {
   const [signer, setSigner] = useState(undefined);
   const [account, setAccount] = useState(undefined);
   const [contract, setContract] = useState(undefined);
+  const [addLobby, setAddLobby] = useState(false);
 
   const handleNewLobby = () => {
     console.log("make new lobby");
+    setAddLobby((prevState) => !prevState);
   };
   const handleJoinLobby = () => {
     console.log("join lobby");
+  };
+
+  const depolyContract = async () => {
+    console.log("contract deployed");
   };
 
   //initial PageLoad
@@ -197,11 +201,26 @@ const Home: NextPage = () => {
             >
               Account Connected: {account}
             </div>
-
-            <MainMenu
-              handleNewLobby={handleNewLobby}
-              handleJoinLobby={handleJoinLobby}
-            />
+            <div
+              className={`
+              flex-1 flex
+              grid grid-cols-1 gap-10
+              max-h-[600px]
+              content-center
+              justify-items-center
+              justify-around
+              border rounded-[50px]
+              pb-[3rem] pt-[4.5rem]`}
+            >
+              {addLobby ? (
+                <AddLobbyInterface deployContractHandler={depolyContract} />
+              ) : (
+                <MainMenu
+                  handleJoinLobby={handleJoinLobby}
+                  handleNewLobby={handleNewLobby}
+                />
+              )}
+            </div>
           </>
         )}
       </main>

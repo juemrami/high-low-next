@@ -1,4 +1,5 @@
 import React from "react";
+import "tailwindcss/tailwind.css";
 const customStyles = {
   mainButton: `
       w-[200px]
@@ -14,32 +15,42 @@ const customStyles = {
       bg-gray
       hover:text-gold hover:border-gold hover:cursor-pointer
   `,
+  container: `
+  grid grid-cols-1 gap-5
+  flex-1 flex
+  content-center
+  max-h-[600px]
+  border-[1px] border-solid rounded-xl
+  justify-items-center
+    justify-around
+        pb-[3rem] pt-[4.5rem]`,
 };
-const MainMenu = ({handleNewLobby, handleJoinLobby}) => {
+interface Props {
+  handleNewLobby: any;
+  handleJoinLobby: any;
+}
+const MainMenu = (props: Props) => {
+  const { handleNewLobby, handleJoinLobby } = props;
   return (
     <>
       <div
-        className={`
-              flex-1 flex
-              grid grid-cols-1 gap-10
-              max-h-[600px]
-              content-center
-              justify-items-center
-              justify-around
-              border rounded-[50px]
-              pb-[3rem] pt-[4.5rem]`}
+        className={customStyles.mainButton}
+        onClick={() => {
+          handleNewLobby();
+        }}
       >
-        <div className={customStyles.mainButton}
-        onClick={()=>{handleNewLobby();}}>
-          <text className="pl-3 pr-3 pt-1.5 self-center">Deploy new Lobby</text>
-        </div>
-        <div className="flex self-center items-center text-[2em] text-gold">
-          <text className="pl-3 pr-3">or</text>
-        </div>
-        <div className={customStyles.mainButton}
-        onClick={()=> {handleJoinLobby();}}>
-          <text className="pl-3 pr-3 pt-1.5 self-center">Join Lobby</text>
-        </div>
+        <text className="pl-3 pr-3 pt-1.5 self-center">Deploy new Lobby</text>
+      </div>
+      <div className="flex self-center items-center text-[2em] text-gold">
+        <text className="pl-3 pr-3">or</text>
+      </div>
+      <div
+        className={customStyles.mainButton}
+        onClick={() => {
+          handleJoinLobby();
+        }}
+      >
+        <text className="pl-3 pr-3 pt-1.5 self-center">Join Lobby</text>
       </div>
     </>
   );
