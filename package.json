@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@metamask/detect-provider": "^1.2.0",
     "@metamask/logo": "^3.1.1",
     "@openzeppelin/contracts": "^4.4.1",
     "ethers": "^5.0.0",
