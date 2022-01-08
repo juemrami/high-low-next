@@ -2,14 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-
-
-a {
-  color: inherit;
-  text-decoration: none;
+@layer components {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button 
+  input[type="number"]::{
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+    margin: 0;
+  }
 }
 
-* {
-  box-sizing: border-box;
-}

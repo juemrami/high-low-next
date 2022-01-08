@@ -1,12 +1,18 @@
 module.exports = {
+  mode: 'jit',
+  purge: [
+    "./lib/**/*.{jsx,tsx,ts,js,html}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+  ],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    "./lib/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       colors: {
         gold: "#f0bc13",
+        lightgray: "#3f3f3f",
         gray: "#1f1f1f",
         darkgray :"#121211",
         light: "#fafafa",
